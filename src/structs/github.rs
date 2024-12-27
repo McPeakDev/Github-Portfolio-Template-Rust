@@ -1,0 +1,53 @@
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct User {
+    pub login: String,
+    pub id: u64,
+    pub node_id: String,
+    pub avatar_url: String,
+    pub gravatar_id: String,
+    pub url: String,
+    pub html_url: String,
+    pub followers_url: String,
+    pub following_url: String,
+    pub gists_url: String,
+    pub starred_url: String,
+    pub subscriptions_url: String,
+    pub organizations_url: String,
+    pub repos_url: String,
+    pub events_url: String,
+    pub received_events_url: String,
+    pub user_view_type: String,
+    pub site_admin: bool,
+    pub name: Option<String>,
+    pub company: Option<String>,
+    pub blog: Option<String>,
+    pub location: Option<String>,
+    pub hireable: Option<bool>,
+    pub bio: Option<String>,
+    pub public_repos: u32,
+    pub public_gists: u32,
+    pub followers: u32,
+    pub following: u32,
+    pub created_at: String,
+    pub updated_at: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Project {
+    pub id: u64,
+    pub node_id: String,
+    pub name: String,
+    pub private: bool,
+    pub html_url: String,
+    pub description: Option<String>,
+    pub fork: bool,
+    pub url: String,
+    pub created_at: String,
+    pub updated_at: String,
+    pub pushed_at: String,
+    pub git_url: String,
+    pub language: Option<String>,
+    pub open_issues_count: u32,
+}
