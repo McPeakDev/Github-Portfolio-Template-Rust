@@ -48,8 +48,11 @@ pub fn Header() -> impl IntoView {
 
     view! {
         <div class="flex flex-row justify-between py-4 w-full fancy-text">
-            <div class="text-3xl basis-2/5">{name}</div>
-            <div class="flex-grow text-xl">{route_links}</div>
+            <div class="ml-4 text-3xl basis-2/5">
+                <Link href=String::from("/") name=name />
+            </div>
+
+            <div class="flex-grow text-xl mt-1">{route_links}</div>
             <div class="text-xl">{social_media_links}</div>
         </div>
     }

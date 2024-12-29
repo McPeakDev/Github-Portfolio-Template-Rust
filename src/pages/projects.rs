@@ -19,7 +19,9 @@ pub fn Projects() -> impl IntoView {
     spawn_local(async move {
         let projects_result = api.get_github_repos(config.github_username).await;
 
-        if let Ok(projects) = projects_result {
+        if let Ok(mut projects) = projects_result {
+            projects.sort_by(|a, b| a.language.cmp(&b.language));
+
             *set_projects.write() = projects
                 .into_iter()
                 .filter(|project| project.fork == false && project.language.is_some())
@@ -40,5 +42,10 @@ pub fn Projects() -> impl IntoView {
         }
     };
 
-    view! { <p>{projects_view}</p> }
+    view! {
+        <div class="flex flex-col">
+            <p class="mx-4 text-center">"Click the project to checkout the github repo!"</p>
+            {projects_view}
+        </div>
+    }
 }

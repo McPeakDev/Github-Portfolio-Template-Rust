@@ -9,7 +9,7 @@ pub fn IconButton(href: String, svg: String) -> impl IntoView {
 
     view! {
         <button
-            class="mx-4 w-6 h-6 transition duration-200 ease-in-out hover:text-emerald-500"
+            class="mx-4 mt-2 w-6 h-6 transition duration-200 ease-in-out hover:text-emerald-500"
             on:click=on_click
         >
             <svg
